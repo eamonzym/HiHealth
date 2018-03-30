@@ -2,10 +2,11 @@ package com.example.eamon.hihealth.db;
 
 import org.litepal.annotation.Column;
 
-import java.sql.Time;
+import java.sql.Date;
 
 /**
  * 健康习惯打卡记录信息
+ * 和习惯信息 是多 对 1
  * 作者：Created by eamon
  * 时间：  on 2018/3/27.
  */
@@ -14,37 +15,50 @@ public class HabitLog {
 
     // 主键 习惯记录编号
     @Column(unique = true)
-    private int habitLogId;
+    private int habitLog_Id;
+
+    // 外键 习惯信息编号
+    // 多 对 1
+    @Column(nullable = false)
+    private Habit habit;
 
     // 不空 习惯打卡状态
     @Column(nullable = false)
-    private String habitStampeState;
+    private String habitLog_StampeState;
 
     // 不空 习惯打卡日期
     @Column(nullable = false)
-    private Time habitStampeTime;
+    private Date habitLog_StampeTime;
 
-    public int getHabitLogId() {
-        return habitLogId;
+    public int getHabitLog_Id() {
+        return habitLog_Id;
     }
 
-    public void setHabitLogId(int habitLogId) {
-        this.habitLogId = habitLogId;
+    public void setHabitLog_Id(int habitLog_Id) {
+        this.habitLog_Id = habitLog_Id;
     }
 
-    public String getHabitStampeState() {
-        return habitStampeState;
+    public Habit getHabit() {
+        return habit;
     }
 
-    public void setHabitStampeState(String habitStampeState) {
-        this.habitStampeState = habitStampeState;
+    public void setHabit(Habit habit) {
+        this.habit = habit;
     }
 
-    public Time getHabitStampeTime() {
-        return habitStampeTime;
+    public String getHabitLog_StampeState() {
+        return habitLog_StampeState;
     }
 
-    public void setHabitStampeTime(Time habitStampeTime) {
-        this.habitStampeTime = habitStampeTime;
+    public void setHabitLog_StampeState(String habitLog_StampeState) {
+        this.habitLog_StampeState = habitLog_StampeState;
+    }
+
+    public Date getHabitLog_StampeTime() {
+        return habitLog_StampeTime;
+    }
+
+    public void setHabitLog_StampeTime(Date habitLog_StampeTime) {
+        this.habitLog_StampeTime = habitLog_StampeTime;
     }
 }

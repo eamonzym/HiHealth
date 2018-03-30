@@ -2,8 +2,13 @@ package com.example.eamon.hihealth.db;
 
 import org.litepal.annotation.Column;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 健康习惯信息
+ * 和习惯打卡是
+ * 1 对 多关系
  * Created by eamon on 2018/3/27.
  */
 
@@ -12,37 +17,48 @@ public class Habit {
 
     //主键
     @Column(unique = true)
-    private int habitId;
+    private int habit_Id;
+
+    // 1 对 多
+    private List<HabitLog> habitLogList = new ArrayList<HabitLog>();
 
     //不为空
     @Column(nullable = false)
-    private String habitName;
+    private String habit_Name;
 
     //不为空
     @Column(nullable = false)
-    private String habitState;
+    private String habit_State;
 
-    public int getHabitId() {
-        return habitId;
+    public int getHabit_Id() {
+        return habit_Id;
     }
 
-    public void setHabitId(int habitId) {
-        this.habitId = habitId;
+    public void setHabit_Id(int habit_Id) {
+        this.habit_Id = habit_Id;
     }
 
-    public String getHabitName() {
-        return habitName;
+    public List<HabitLog> getHabitLogList() {
+        return habitLogList;
     }
 
-    public void setHabitName(String habitName) {
-        this.habitName = habitName;
+    public void setHabitLogList(List<HabitLog> habitLogList) {
+        this.habitLogList = habitLogList;
     }
 
-    public String getHabitState() {
-        return habitState;
+    public String getHabit_Name() {
+        return habit_Name;
     }
 
-    public void setHabitState(String habitState) {
-        this.habitState = habitState;
+    public void setHabit_Name(String habit_Name) {
+        this.habit_Name = habit_Name;
+    }
+
+    public String getHabit_State() {
+        return habit_State;
+    }
+
+    public void setHabit_State(String habit_State) {
+        this.habit_State = habit_State;
     }
 }

@@ -2,10 +2,14 @@ package com.example.eamon.hihealth.db;
 
 import org.litepal.annotation.Column;
 
-import java.sql.Time;
+import java.util.ArrayList;
+import java.sql.Date;
+import java.util.List;
 
 /**
  * 饮食记录信息
+ * 和食物信息
+ * 是 多 对 多
  * 作者：Created by eamon
  * 时间：  on 2018/3/27.
  */
@@ -14,49 +18,60 @@ public class DietLog {
 
     // 主键 饮食记录编号
     @Column(unique = true)
-    private int dietLogId;
+    private int dietLog_Id;
+
+    // 多 对 多
+    private List<Food> foodList = new ArrayList<Food>();
 
     // 不空 饮食数量
     @Column(nullable = false)
-    private int dietQuantity;
+    private int dietLog_Quantity;
 
     // 不空 摄入热量值
     @Column(nullable =false)
-    private double dietCalorie;
+    private double dietLog_Calorie;
 
     // 不空 饮食记录时间
     @Column(nullable = false)
-    private Time dietLogTime;
+    private Date dietLog_Time;
 
-    public int getDietLogId() {
-        return dietLogId;
+    public int getDietLog_Id() {
+        return dietLog_Id;
     }
 
-    public void setDietLogId(int dietLogId) {
-        this.dietLogId = dietLogId;
+    public void setDietLog_Id(int dietLog_Id) {
+        this.dietLog_Id = dietLog_Id;
     }
 
-    public int getDietQuantity() {
-        return dietQuantity;
+    public List<Food> getFoodList() {
+        return foodList;
     }
 
-    public void setDietQuantity(int dietQuantity) {
-        this.dietQuantity = dietQuantity;
+    public void setFoodList(List<Food> foodList) {
+        this.foodList = foodList;
     }
 
-    public double getDietCalorie() {
-        return dietCalorie;
+    public int getDietLog_Quantity() {
+        return dietLog_Quantity;
     }
 
-    public void setDietCalorie(double dietCalorie) {
-        this.dietCalorie = dietCalorie;
+    public void setDietLog_Quantity(int dietLog_Quantity) {
+        this.dietLog_Quantity = dietLog_Quantity;
     }
 
-    public Time getDietLogTime() {
-        return dietLogTime;
+    public double getDietLog_Calorie() {
+        return dietLog_Calorie;
     }
 
-    public void setDietLogTime(Time dietLogTime) {
-        this.dietLogTime = dietLogTime;
+    public void setDietLog_Calorie(double dietLog_Calorie) {
+        this.dietLog_Calorie = dietLog_Calorie;
+    }
+
+    public Date getDietLog_Time() {
+        return dietLog_Time;
+    }
+
+    public void setDietLog_Time(Date dietLog_Time) {
+        this.dietLog_Time = dietLog_Time;
     }
 }

@@ -1,12 +1,19 @@
 package com.example.eamon.hihealth;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.facebook.stetho.Stetho;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
+
+import org.litepal.tablemanager.Connector;
+
+import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,5 +33,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
             }
         });
+        SQLiteDatabase db = Connector.getDatabase();
+        Stetho.initializeWithDefaults(this);
+        new OkHttpClient.Builder()
+                .addNetworkInterceptor(new StethoInterceptor())
+                .build();
     }
 }

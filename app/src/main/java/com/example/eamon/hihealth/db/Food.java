@@ -2,8 +2,13 @@ package com.example.eamon.hihealth.db;
 
 import org.litepal.annotation.Column;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 食物信息
+ * 和饮食记录是
+ * 多 对 多
  * 作者：Created by eamon
  * 时间：  on 2018/3/27.
  */
@@ -12,61 +17,72 @@ public class Food {
 
     // 主键 食物编号
     @Column(unique = true)
-    private int foodId;
+    private int food_Id;
+
+    // 多 对 多（要创建中间表）
+    private List<DietLog> dietLogList = new ArrayList<DietLog>();
 
     // 不为空 食物名称
     @Column(nullable = false)
-    private String foodName;
+    private String food_Name;
 
     // 不为空 食物热量
     @Column(nullable = false)
-    private double foodCalorie;
+    private double food_Calorie;
 
     // 不为空 食物类型
     @Column(nullable = false)
-    private String foodType;
+    private String food_Type;
 
     // 不为空 食用建议
     @Column(nullable = false)
-    private String foodSuggest;
+    private String food_Suggest;
 
-    public int getFoodId() {
-        return foodId;
+    public int getFood_Id() {
+        return food_Id;
     }
 
-    public void setFoodId(int foodId) {
-        this.foodId = foodId;
+    public void setFood_Id(int food_Id) {
+        this.food_Id = food_Id;
     }
 
-    public String getFoodName() {
-        return foodName;
+    public List<DietLog> getDietLogList() {
+        return dietLogList;
     }
 
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
+    public void setDietLogList(List<DietLog> dietLogList) {
+        this.dietLogList = dietLogList;
     }
 
-    public double getFoodCalorie() {
-        return foodCalorie;
+    public String getFood_Name() {
+        return food_Name;
     }
 
-    public void setFoodCalorie(double foodCalorie) {
-        this.foodCalorie = foodCalorie;
+    public void setFood_Name(String food_Name) {
+        this.food_Name = food_Name;
     }
 
-    public String getFoodType() {
-        return foodType;
+    public double getFood_Calorie() {
+        return food_Calorie;
     }
 
-    public void setFoodType(String foodType) {
-        this.foodType = foodType;
+    public void setFood_Calorie(double food_Calorie) {
+        this.food_Calorie = food_Calorie;
     }
 
-    public String getFoodSuggest() {
-        return foodSuggest;
+    public String getFood_Type() {
+        return food_Type;
     }
 
-    public void setFoodSuggest(String foodSuggest) {
-        this.foodSuggest = foodSuggest;
+    public void setFood_Type(String food_Type) {
+        this.food_Type = food_Type;
+    }
+
+    public String getFood_Suggest() {
+        return food_Suggest;
+    }
+
+    public void setFood_Suggest(String food_Suggest) {
+        this.food_Suggest = food_Suggest;
     }
 }

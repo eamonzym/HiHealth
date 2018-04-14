@@ -2,7 +2,7 @@ package com.example.eamon.hihealth.db;
 
 import org.litepal.annotation.Column;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * 排便记录信息
@@ -15,7 +15,7 @@ public class DefecateLog {
 
     // 主键 排便记录信息编号
     @Column(unique = true)
-    private int defecateLog_Id;
+    private String defecateLog_Id;
 
     // 外键 排便信息编号
     @Column(nullable = false)
@@ -37,51 +37,4 @@ public class DefecateLog {
     @Column(nullable = false)
     private String defecateLog_Remark;
 
-    public int getDefecateLog_Id() {
-        return defecateLog_Id;
-    }
-
-    public void setDefecateLog_Id(int defecateLog_Id) {
-        this.defecateLog_Id = defecateLog_Id;
-    }
-
-    public Defecate getDefecate() {
-        return defecate;
-    }
-
-    public void setDefecate(Defecate defecate) {
-        this.defecate = defecate;
-    }
-
-    public String getDefecateLog_Feel() {
-        return defecateLog_Feel;
-    }
-
-    public void setDefecateLog_Feel(String defecateLog_Feel) {
-        this.defecateLog_Feel = defecateLog_Feel;
-    }
-
-    public int getDefecateLog_Duration() {
-        return defecateLog_Duration;
-    }
-
-    public void setDefecateLog_Duration(int defecateLog_Duration) {
-        this.defecateLog_Duration = defecateLog_Duration;
-    }
-
-    public Date getDefecateLog_Time() {
-        return defecateLog_Time;
-    }
-
-    public void setDefecateLog_Time(Date defecateLog_Time) {
-        this.defecateLog_Time = defecateLog_Time;
-    }
-
-    public String getDefecateLog_Remark() {
-        return defecateLog_Remark;
-    }
-
-    public void setDefecateLog_Remark(String defecateLog_Remark) {
-        this.defecateLog_Remark = defecateLog_Remark;
-    }
 }

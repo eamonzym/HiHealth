@@ -17,7 +17,7 @@ public class Defecate {
 
     // 主键 排便信息编号
     @Column(unique = true)
-    private int defecateId;
+    private String defecateId;
 
     // 1 对 多
     private List<DefecateLog> defecateLogList = new ArrayList<DefecateLog>();
@@ -34,43 +34,4 @@ public class Defecate {
     @Column(nullable = false)
     private String defecate_Rank;
 
-    public int getDefecateId() {
-        return defecateId;
-    }
-
-    public void setDefecateId(int defecateId) {
-        this.defecateId = defecateId;
-    }
-
-    public List<DefecateLog> getDefecateLogList() {
-        return defecateLogList;
-    }
-
-    public void setDefecateLogList(List<DefecateLog> defecateLogList) {
-        this.defecateLogList = defecateLogList;
-    }
-
-    public String getDefecate_Type() {
-        return defecate_Type;
-    }
-
-    public void setDefecate_Type(String defecate_Type) {
-        this.defecate_Type = defecate_Type;
-    }
-
-    public String getDefecate_Peculiarity() {
-        return defecate_Peculiarity;
-    }
-
-    public void setDefecate_Peculiarity(String defecate_Peculiarity) {
-        this.defecate_Peculiarity = defecate_Peculiarity;
-    }
-
-    public String getDefecate_Rank() {
-        return defecate_Rank;
-    }
-
-    public void setDefecate_Rank(String defecate_Rank) {
-        this.defecate_Rank = defecate_Rank;
-    }
 }

@@ -1,9 +1,10 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
+import org.litepal.crud.DataSupport;
 
-import java.sql.Date;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,31 +14,22 @@ import java.util.List;
  */
 
 
-public class HealthReport {
+public class HealthReport extends DataSupport implements Serializable {
 
-    // 设置为主键
-    @Column(unique = true)
-    private int rebort_Id;
+    // 主键
+    private int id;
 
     // 1 对 多 关系
-    @Column(nullable = false)
     private List<BodyDataLog> bodyDataLogList = new ArrayList<BodyDataLog>();
 
-    // 设置为不空
-    @Column(nullable = false)
-    private int rebort_Scroe;
+    private int userinfo_id;
 
     // 设置为不空
-    @Column(nullable = false)
-    private Date rebort_Time;
+    private int report_Scroe;
 
-    public int getRebort_Id() {
-        return rebort_Id;
-    }
+    // 设置为不空
+    private Date report_Time;
 
-    public void setRebort_Id(int rebort_Id) {
-        this.rebort_Id = rebort_Id;
-    }
 
     public List<BodyDataLog> getBodyDataLogList() {
         return bodyDataLogList;
@@ -47,19 +39,35 @@ public class HealthReport {
         this.bodyDataLogList = bodyDataLogList;
     }
 
-    public int getRebort_Scroe() {
-        return rebort_Scroe;
+    public int getReport_Scroe() {
+        return report_Scroe;
     }
 
-    public void setRebort_Scroe(int rebort_Scroe) {
-        this.rebort_Scroe = rebort_Scroe;
+    public void setReport_Scroe(int report_Scroe) {
+        this.report_Scroe = report_Scroe;
     }
 
-    public Date getRebort_Time() {
-        return rebort_Time;
+    public Date getReport_Time() {
+        return report_Time;
     }
 
-    public void setRebort_Time(Date rebort_Time) {
-        this.rebort_Time = rebort_Time;
+    public void setReport_Time(Date report_Time) {
+        this.report_Time = report_Time;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getUserinfo_id() {
+        return userinfo_id;
+    }
+
+    public void setUserinfo_id(UserInfo userinfo) {
+        this.userinfo_id = userinfo.getId();
     }
 }

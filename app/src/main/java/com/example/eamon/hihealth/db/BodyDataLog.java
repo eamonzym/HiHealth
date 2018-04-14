@@ -1,8 +1,9 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
+import org.litepal.crud.DataSupport;
 
-import java.sql.Date;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 身体数据记录信息
@@ -12,51 +13,45 @@ import java.sql.Date;
  * 时间：  on 2018/3/27.
  */
 
-public class BodyDataLog {
+public class BodyDataLog extends DataSupport implements Serializable {
 
-    // 主键 身体数据记录编号
-    @Column(unique = true)
-    private int bodyDataLog_Id;
+    // 主键
+    private int id;
 
-    // 外键 身体数据信息编号
-    // 多 对 1
-    @Column(nullable = false)
-    private BodyData bodyData;
+    private int  bodydata_id;
 
-    // 外键 健康报告编号
-    // 多 对 1
-    @Column(nullable = false)
-    private HealthReport healthReport;
-    // 不空 身体数据值
-    @Column(nullable = false)
+    private int healthReport_id;
+
+    private int userinfo_id;
+
     private String bodyDataLog_Value;
 
-    // 不空 身体数据记录时间
-    @Column(nullable = false)
+
     private Date bodyDataLog_Time;
 
-    public int getBodyDataLog_Id() {
-        return bodyDataLog_Id;
+    public int getId() {
+        return id;
     }
 
-    public void setBodyDataLog_Id(int bodyDataLog_Id) {
-        this.bodyDataLog_Id = bodyDataLog_Id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public BodyData getBodyData() {
-        return bodyData;
+
+    public int getBodyData() {
+        return bodydata_id;
     }
 
     public void setBodyData(BodyData bodyData) {
-        this.bodyData = bodyData;
+        bodydata_id = bodyData.getId();
     }
 
-    public HealthReport getHealthReport() {
-        return healthReport;
+    public int getHealthReport() {
+        return healthReport_id;
     }
 
     public void setHealthReport(HealthReport healthReport) {
-        this.healthReport = healthReport;
+        this.healthReport_id = healthReport.getId();
     }
 
     public String getBodyDataLog_Value() {
@@ -73,5 +68,14 @@ public class BodyDataLog {
 
     public void setBodyDataLog_Time(Date bodyDataLog_Time) {
         this.bodyDataLog_Time = bodyDataLog_Time;
+
+    }
+
+    public int getUserInfo_id() {
+        return userinfo_id;
+}
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userinfo_id = userInfo.getId();
     }
 }

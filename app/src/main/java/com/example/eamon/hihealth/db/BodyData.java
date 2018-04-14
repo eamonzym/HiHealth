@@ -1,7 +1,9 @@
 package com.example.eamon.hihealth.db;
 
 import org.litepal.annotation.Column;
+import org.litepal.crud.DataSupport;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,29 +15,35 @@ import java.util.List;
  * 时间：  on 2018/3/27.
  */
 
-public class BodyData {
+public class BodyData extends DataSupport implements Serializable {
 
-    // 主键 身体数据编号
-    @Column(unique = true)
-    private int bodyData_Id;
+    // 主键 数据表id
+    private int id;
 
     // 1 对 多 身体数据记录
     private List<BodyDataLog> bodyDataLogList = new ArrayList<BodyDataLog>();
 
+    // 外键用户信息
+
     // 不空 身体数据名称
-    @Column(nullable = false)
+    @Column(unique = true)
     private String bodyData_Name;
 
     // 不空 身体数据信息描述
-    @Column(nullable = false)
     private String bodyData_Describe;
 
-    public int getBodyData_Id() {
-        return bodyData_Id;
+    public BodyData(String bodyData_Name, String bodyData_Describe) {
+        this.bodyData_Name = bodyData_Name;
+        this.bodyData_Describe = bodyData_Describe;
     }
 
-    public void setBodyData_Id(int bodyData_Id) {
-        this.bodyData_Id = bodyData_Id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public List<BodyDataLog> getBodyDataLogList() {

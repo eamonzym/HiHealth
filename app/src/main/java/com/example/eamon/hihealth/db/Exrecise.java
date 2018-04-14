@@ -17,7 +17,7 @@ public class Exrecise {
 
     // 主键 运动信息编号
     @Column(unique = true)
-    private int exrecise_Id;
+    private String exrecise_Id;
 
     //1 对 多
     private List<ExerciseLog> exerciseLogList = new ArrayList<ExerciseLog>();
@@ -41,60 +41,4 @@ public class Exrecise {
     // 不空 运动建议
     @Column(nullable = false)
     private String exercise_Suggest;
-
-    public int getExrecise_Id() {
-        return exrecise_Id;
-    }
-
-    public void setExrecise_Id(int exrecise_Id) {
-        this.exrecise_Id = exrecise_Id;
-    }
-
-    public List<ExerciseLog> getExerciseLogList() {
-        return exerciseLogList;
-    }
-
-    public void setExerciseLogList(List<ExerciseLog> exerciseLogList) {
-        this.exerciseLogList = exerciseLogList;
-    }
-
-    public String getExrecise_Name() {
-        return exrecise_Name;
-    }
-
-    public void setExrecise_Name(String exrecise_Name) {
-        this.exrecise_Name = exrecise_Name;
-    }
-
-    public double getExrecise_Calorie() {
-        return exrecise_Calorie;
-    }
-
-    public void setExrecise_Calorie(double exrecise_Calorie) {
-        this.exrecise_Calorie = exrecise_Calorie;
-    }
-
-    public int getExercise_EffectTime() {
-        return exercise_EffectTime;
-    }
-
-    public void setExercise_EffectTime(int exercise_EffectTime) {
-        this.exercise_EffectTime = exercise_EffectTime;
-    }
-
-    public String getExercise_Rank() {
-        return exercise_Rank;
-    }
-
-    public void setExercise_Rank(String exercise_Rank) {
-        this.exercise_Rank = exercise_Rank;
-    }
-
-    public String getExercise_Suggest() {
-        return exercise_Suggest;
-    }
-
-    public void setExercise_Suggest(String exercise_Suggest) {
-        this.exercise_Suggest = exercise_Suggest;
-    }
 }

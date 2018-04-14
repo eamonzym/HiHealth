@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="健康目标"
+            android:textSize="16sp"
+            />
+        <RadioGroup
+            android:id="@+id/group_target"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <RadioButton
+                android:id="@+id/btn_lose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="减肥"
+                android:textSize="16sp"/>
+            <RadioButton
+                android:id="@+id/btn_shaping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="塑形"
+                android:textSize="16sp"/>
+        </RadioGroup>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="完成"
+        />
+
+</LinearLayout>

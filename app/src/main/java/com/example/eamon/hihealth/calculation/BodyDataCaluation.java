@@ -22,11 +22,11 @@ public class BodyDataCaluation {
 
 
     public BodyDataCaluation(UserInfo userInfo) {
-        height = userInfo.getUser_height();
-
-        weight = userInfo.getUser_weight();
-
-        sex = userInfo.getUser_sex();
+//        height = userInfo.getUser_height();
+//
+//        weight = userInfo.getUser_weight();
+//
+//        sex = userInfo.getUser_sex();
 
         birth = 21;
 

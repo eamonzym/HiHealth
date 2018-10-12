@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/quxian_lan">
+
+        <LinearLayout
+            android:id="@+id/left_back_view"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/zuojiantou_bai" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/foodlog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="2018-05-20"
+            android:textColor="#ffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:layout_weight="1"
+                android:id="@+id/foodlog_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/default_parent_bg" />
+            <LinearLayout
+                android:layout_margin="16dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_gravity="center"
+                    android:layout_width="3dp"
+                    android:layout_height="16dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/quxian_lan" />
+                <TextView
+                    android:layout_gravity="center"
+                    style="@style/BaseText"
+                    android:text="热量摄入"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/bg_circle">
+
+                    <TextView
+                        style="@style/BaseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginBottom="50dp"
+                        android:gravity="center"
+                        android:text="早餐" />
+
+                    <TextView
+                        android:id="@+id/breakfast_view"
+                        android:layout_marginTop="8dp"
+                        style="@style/BaseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="32sp"
+                        android:textColor="@color/quxian_lan"
+                        android:text="80" />
+                    <TextView
+                        style="@style/BaseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="65dp"
+                        android:gravity="center"
+                        android:text="千卡" />
+
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/bg_circle">
+
+                    <TextView
+                        style="@style/BaseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="50dp"
+                        android:gravity="center"
+                        android:text="午餐" />
+                    <TextView
+                        android:id="@+id/lunch_view"
+                        android:layout_marginTop="8dp"
+                        style="@style/BaseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="32sp"
+                        android:textColor="@color/quxian_lan"
+                        android:text="80" />
+                    <TextView
+                        style="@style/BaseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="65dp"
+                        android:gravity="center"
+                        android:text="千卡" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/bg_circle">
+
+                    <TextView
+                        style="@style/BaseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="50dp"
+                        android:gravity="center"
+                        android:text="晚餐" />
+                    <TextView
+                        android:id="@+id/dinner_view"
+                        android:layout_marginTop="8dp"
+                        style="@style/BaseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="32sp"
+                        android:textColor="@color/quxian_lan"
+                        android:text="80" />
+                    <TextView
+                        style="@style/BaseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="65dp"
+                        android:gravity="center"
+                        android:text="千卡" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

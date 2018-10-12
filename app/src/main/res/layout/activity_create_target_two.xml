@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_parent_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@color/quxian_lan">
+
+            <LinearLayout
+                android:id="@+id/left_back_view"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:layout_width="11dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/zuojiantou_bai" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="完善目标信息(2/3)"
+                android:textColor="#ffff"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <View style="@style/BaseLongDividerLine"/>
+
+        <TextView
+            style="@style/BaseText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="放心，hihealth不会透露你的信息"
+            android:textColor="@color/default_text_grey_color" />
+
+        <TextView
+            style="@style/BaseText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="今天的体重" />
+
+        <TextView
+            android:id="@+id/weight_value"
+            style="@style/BaseText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="200.0公斤"
+            android:textColor="@color/quxian_lan"
+            android:textSize="16sp" />
+
+        <com.example.eamon.hihealth.util.RulerView
+            android:id="@+id/ruler"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/quxian_lan"
+            app:rulerColor="@android:color/white"
+            app:rulerDivideByFiveHeight="40dp"
+            app:rulerDivideByFiveWidth="1dp"
+            app:rulerDivideByTenHeight="50dp"
+            app:rulerDivideByTenWidth="1dp"
+            app:rulerHighlightColor="#f00"
+            app:rulerIntervalDistance="10dp"
+            app:rulerIntervalValue="0.1"
+            app:rulerIsDivideByFive="false"
+            app:rulerIsDivideByTen="true"
+            app:rulerLineHeight="30dp"
+            app:rulerLineWidth="1dp"
+            app:rulerMaxValue="200"
+            app:rulerMinValue="40"
+            app:rulerOrientation="horizontal"
+            app:rulerRetainLength="1"
+            app:rulerTextBaseLineDistance="5dp"
+            app:rulerTextColor="@android:color/white"
+            app:rulerTextSize="14sp" />
+
+        <TextView
+            style="@style/BaseText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="选择目标类型" />
+
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/target_loss"
+                android:layout_width="78dp"
+                android:layout_height="50dp"
+                android:background="@drawable/checkbox_select"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="减肥"
+                android:textColor="@drawable/checkbox_you_select_color" />
+
+            <RadioButton
+                android:id="@+id/target_keep"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:background="@drawable/checkbox_you_select"
+                android:button="@null"
+                android:gravity="center"
+                android:text="塑形"
+                android:textColor="@drawable/checkbox_you_select_color" />
+        </RadioGroup>
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/yuanjiao_green"
+        android:onClick="onClick"
+        android:text="下一步"
+        android:textColor="#ffff"
+        android:textSize="14sp" />
+
+</RelativeLayout>

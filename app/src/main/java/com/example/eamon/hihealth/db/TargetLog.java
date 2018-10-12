@@ -1,7 +1,6 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
-
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,23 +11,35 @@ import java.util.Date;
  * 时间：  on 2018/3/27.
  */
 
-public class TargetLog {
+public class TargetLog implements Serializable{
 
-    // 主键 目标记录编号
-    @Column(unique = true)
-    private String targetLog_Id;
+    private Number currentweight;
 
-    // 外键 目标信息标号
-    // 多 对 1
+    private Date targetlogtime;
 
-    @Column(nullable = false)
-    private Target target;
+    public String targetid;
 
-    // 不空 当前体重
-    @Column(nullable = false)
-    private double currentWeight;
+    public String getTargetid() {
+        return targetid;
+    }
 
-    // 不空 健康目标记录时间
-    @Column(nullable = false)
-    private Date targetLog_Time;
+    public void setTargetid(String targetid) {
+        this.targetid = targetid;
+    }
+
+    public Number getCurrentweight() {
+        return currentweight;
+    }
+
+    public void setCurrentweight(Number currentweight) {
+        this.currentweight = currentweight;
+    }
+
+    public Date getTargetlogtime() {
+        return targetlogtime;
+    }
+
+    public void setTargetlogtime(Date targetlogtime) {
+        this.targetlogtime = targetlogtime;
+    }
 }

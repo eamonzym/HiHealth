@@ -1,7 +1,6 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
-
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,28 +10,65 @@ import java.util.Date;
  * 时间：  on 2018/3/27.
  */
 
-public class ExerciseLog {
+public class ExerciseLog implements Serializable{
 
-    // 主键 运动检录信息编号
-    @Column(unique = true)
-    private String exerciseLog_Id;
+    private String _id;
 
-    // 外键 运动信息编号
-    @Column(nullable = false)
-    private Exrecise exrecise;
-    // 不空 运动距离
-    @Column(nullable = false)
-    private double exerciseLog_Distance;
+    private Number exerciseduration;
 
-    // 不空 运动时长
-    @Column(nullable = false)
-    private int exerciseLog_Duration;
+    private Number exercisetotalcalorie;
 
-    // 不空 运动消耗总卡路里
-    @Column(nullable = false)
-    private double exerciseLog_TotalCalorie;
+    private Date exerciselogtime;
 
-    // 不空 运动记录时间
-    @Column(nullable = false)
-    private Date exerciseLog_Time;
+    private UserInfo userInfo;
+
+    private Exercise exerciseid;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public Number getExerciseduration() {
+        return exerciseduration;
+    }
+
+    public void setExerciseduration(Number exerciseduration) {
+        this.exerciseduration = exerciseduration;
+    }
+
+    public Number getExercisetotalcalorie() {
+        return exercisetotalcalorie;
+    }
+
+    public void setExercisetotalcalorie(Number exercisetotalcalorie) {
+        this.exercisetotalcalorie = exercisetotalcalorie;
+    }
+
+    public Date getExerciselogtime() {
+        return exerciselogtime;
+    }
+
+    public void setExerciselogtime(Date exerciselogtime) {
+        this.exerciselogtime = exerciselogtime;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
+    public Exercise getExercise() {
+        return exerciseid;
+    }
+
+    public void setExercise(Exercise exercise) {
+        this.exerciseid = exercise;
+    }
 }

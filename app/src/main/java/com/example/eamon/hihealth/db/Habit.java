@@ -1,9 +1,6 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * 健康习惯信息
@@ -13,21 +10,43 @@ import java.util.List;
  */
 
 
-public class Habit {
+public class Habit implements Serializable{
 
-    //主键
-    @Column(unique = true)
-    private String habit_Id;
+    private String _id;
+    private String habitname;
+    private String habitstate;
+    private String username;
 
-    // 1 对 多
-    private List<HabitLog> habitLogList = new ArrayList<HabitLog>();
+    public String get_id() {
+        return _id;
+    }
 
-    //不为空
-    @Column(nullable = false)
-    private String habit_Name;
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
-    //不为空
-    @Column(nullable = false)
-    private String habit_State;
+    public String getUsername() {
+        return username;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+    public String getHabitname() {
+        return habitname;
+    }
+
+    public void setHabitname(String habitname) {
+        this.habitname = habitname;
+    }
+
+    public String getHabitstate() {
+        return habitstate;
+    }
+
+    public void setHabitstate(String habitstate) {
+        this.habitstate = habitstate;
+    }
 }

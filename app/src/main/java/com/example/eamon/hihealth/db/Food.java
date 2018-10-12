@@ -1,9 +1,6 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * 食物信息
@@ -13,29 +10,74 @@ import java.util.List;
  * 时间：  on 2018/3/27.
  */
 
-public class Food {
+public class Food implements Serializable{
+    private String _id;
+    private String foodimage;
+    private String foodname;
+    private Number foodcalorie;
+    private String foodtype;
+    private String fooddescription;
+    private String foodsuggest;
 
-    // 主键 食物编号
-    @Column(unique = true)
-    private String food_Id;
+    public String get_id() {
+        return _id;
+    }
 
-    // 多 对 多（要创建中间表）
-    private List<DietLog> dietLogList = new ArrayList<DietLog>();
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
-    // 不为空 食物名称
-    @Column(nullable = false)
-    private String food_Name;
+    public String getFoodImag() {
+        return foodimage;
+    }
 
-    // 不为空 食物热量
-    @Column(nullable = false)
-    private double food_Calorie;
+    public void setFoodImag(String foodImag) {
+        this.foodimage = foodImag;
+    }
 
-    // 不为空 食物类型
-    @Column(nullable = false)
-    private String food_Type;
+    public Food(String foodname, Number foodcalorie, String foodsuggest) {
+        this.foodname = foodname;
+        this.foodcalorie = foodcalorie;
+        this.foodsuggest = foodsuggest;
+    }
 
-    // 不为空 食用建议
-    @Column(nullable = false)
-    private String food_Suggest;
+    public String getFoodname() {
+        return foodname;
+    }
 
+    public void setFoodname(String foodname) {
+        this.foodname = foodname;
+    }
+
+    public Number getFoodcalorie() {
+        return foodcalorie;
+    }
+
+    public void setFoodcalorie(Number foodcalorie) {
+        this.foodcalorie = foodcalorie;
+    }
+
+    public String getFoodtype() {
+        return foodtype;
+    }
+
+    public void setFoodtype(String foodtype) {
+        this.foodtype = foodtype;
+    }
+
+    public String getFooddescription() {
+        return fooddescription;
+    }
+
+    public void setFooddescription(String fooddescription) {
+        this.fooddescription = fooddescription;
+    }
+
+    public String getFoodsuggest() {
+        return foodsuggest;
+    }
+
+    public void setFoodsuggest(String foodsuggest) {
+        this.foodsuggest = foodsuggest;
+    }
 }

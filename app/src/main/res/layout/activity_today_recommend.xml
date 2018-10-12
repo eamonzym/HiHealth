@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.eamon.hihealth.activity.TodayRecommendActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/quxian_lan">
+
+        <LinearLayout
+            android:id="@+id/left_back_view"
+            android:layout_width="45dp"
+            android:onClick="onClick"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/zuojiantou_bai" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="今日推荐"
+            android:textColor="#ffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:background="@color/quxian_lan"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_gravity="left"
+            android:orientation="vertical"
+            android:layout_margin="8dp"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="#ffff"
+                android:layout_marginLeft="8dp"
+                android:id="@+id/tmp_value"
+                android:text="29°"
+                android:textSize="64dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="#ffff"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:id="@+id/cond_Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="阵雨"
+                android:textSize="16dp" />
+        </LinearLayout>
+        <TextView
+            android:textColor="#fff"
+            android:layout_marginRight="8dp"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:id="@+id/city_Value"
+            android:textSize="32dp"
+            android:text="福州市"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View
+        style="@style/BaseLongDividerLine"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+            android:background="@color/quxian_lan"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="今日生活建议"
+                android:layout_marginLeft="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+            <LinearLayout
+                android:background="#fff"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/sport_Value"
+                    android:text="运动建议"
+                    android:layout_margin="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseText"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/flu_Value"
+                    android:text="感冒建议"
+                    android:layout_margin="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseText"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/drsg_Value"
+                    android:text="穿衣建议"
+                    android:layout_margin="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseText"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/comf_Value"
+                    android:text="舒适度建议"
+                    android:layout_margin="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseText"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <!--<LinearLayout-->
+                <!--android:background="@color/quxian_lan"-->
+                <!--android:layout_marginLeft="8dp"-->
+                <!--android:layout_marginRight="8dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<TextView-->
+                    <!--android:text="今日饮食推荐"-->
+                    <!--android:layout_marginLeft="8dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:textSize="20sp" />-->
+                <!--<TextView-->
+                    <!--android:text="今日饮食推荐"-->
+                    <!--android:layout_marginLeft="8dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:textSize="20sp" />-->
+                <!--<TextView-->
+                    <!--android:text="今日饮食推荐"-->
+                    <!--android:layout_marginLeft="8dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:textSize="20sp" />-->
+                <!--<TextView-->
+                    <!--android:text="今日饮食推荐"-->
+                    <!--android:layout_marginLeft="8dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:textSize="20sp" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:background="#fff"-->
+                <!--android:layout_marginLeft="8dp"-->
+                <!--android:layout_marginRight="8dp"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<android.support.v7.widget.RecyclerView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent">-->
+
+                <!--</android.support.v7.widget.RecyclerView>-->
+            <!--</LinearLayout>-->
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <!--<TextView-->
+        <!--android:text="123456"-->
+        <!--android:id="@+id/position_text_view"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+</LinearLayout>

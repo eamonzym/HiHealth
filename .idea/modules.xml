@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HiHealth.iml" filepath="$PROJECT_DIR$/HiHealth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/circleprogress/circleprogress.iml" filepath="$PROJECT_DIR$/circleprogress/circleprogress.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loopview/loopview.iml" filepath="$PROJECT_DIR$/loopview/loopview.iml" />
     </modules>
   </component>
 </project>

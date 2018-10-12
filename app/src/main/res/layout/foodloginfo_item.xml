@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/foodloginfo_view"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:src="@drawable/user_info_test"
+        android:layout_margin="8dp"
+        android:id="@+id/food_icon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true" />
+
+    <LinearLayout
+        android:layout_toRightOf="@+id/food_icon"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="苹果"
+            android:id="@+id/food_name"
+            android:layout_marginBottom="8dp"
+            android:textSize="18dp"
+            style="@style/BaseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="100克"
+                android:id="@+id/food_quantity"
+                android:textSize="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:text="46千卡"
+        android:id="@+id/food_allcal"
+        android:layout_marginRight="14dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textColor="@color/quxian_lan"
+        android:text="早餐"
+        android:id="@+id/food_type"
+        android:layout_marginRight="14dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/food_allcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_alignParentBottom="true"
+        style="@style/BaseLongDividerLine"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/target_time" />
+</RelativeLayout>

@@ -1,0 +1,144 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.eamon.hihealth.fragment.TargetLogFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart1"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_above="@+id/seekBar1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/default_parent_bg" />
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/bg_circle">
+
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="50dp"
+                    android:gravity="center"
+                    android:text="最小值" />
+
+                <TextView
+                    android:id="@+id/minValue_view"
+                    android:layout_marginTop="16dp"
+                    style="@style/BaseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="32sp"
+                    android:textColor="@color/quxian_lan"
+                    android:text="80" />
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="65dp"
+                    android:gravity="center"
+                    android:text="公斤" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/bg_circle">
+
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="50dp"
+                    android:gravity="center"
+                    android:text="平均值" />
+                <TextView
+                    android:id="@+id/avgValue_view"
+                    android:layout_marginTop="16dp"
+                    style="@style/BaseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="32sp"
+                    android:textColor="@color/quxian_lan"
+                    android:text="80" />
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="65dp"
+                    android:gravity="center"
+                    android:text="公斤" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/bg_circle">
+
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="50dp"
+                    android:gravity="center"
+                    android:text="最大值" />
+                <TextView
+                    android:id="@+id/maxValue_view"
+                    android:layout_marginTop="16dp"
+                    style="@style/BaseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="32sp"
+                    android:textColor="@color/quxian_lan"
+                    android:text="80" />
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="65dp"
+                    android:gravity="center"
+                    android:text="公斤" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- TODO: Update blank fragment layout -->
+
+
+</FrameLayout>

@@ -1,0 +1,83 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.eamon.hihealth.fragment.TargetFirstFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                style="@style/BaseText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="健康的开始，从建立目标开始" />
+            <Button
+                android:id="@+id/create_target"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/yuanjiao_green"
+                android:text="建立目标"
+                android:textColor="#ffff"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="注：需要完成当前目标，才能开始下一个目标哦"
+                android:textColor="@color/default_text_grey_color"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/default_parent_bg" />
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="我的目标" />
+
+                <View style="@style/BaseLongDividerLine" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/target_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </android.support.v7.widget.RecyclerView>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+</FrameLayout>

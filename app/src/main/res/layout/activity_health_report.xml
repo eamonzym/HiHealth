@@ -1,115 +1,435 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="健康得分"
-            android:textSize="16sp" />
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
-        <TextView
-            android:id="@+id/report_score"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:text="75" />
-    </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@color/quxian_lan">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="BMI"
-            android:textSize="16sp" />
+                <LinearLayout
+                    android:id="@+id/left_back_view"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/report_bmi"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="22"
-            android:textSize="16sp" />
+                    <ImageView
+                        android:layout_width="11dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/zuojiantou_bai" />
+                </LinearLayout>
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="健康报告"
+                    android:textColor="#ffff"
+                    android:textSize="20sp" />
+            </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:text="BMR" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/quxian_lan"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/report_bmr"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2200"
-            android:textSize="16sp" />
+                <com.littlejie.circleprogress.CircleProgress
+                    android:id="@+id/circle_progress_bar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:antiAlias="true"
+                    app:arcWidth="@dimen/small"
+                    app:bgArcColor="#ffff"
+                    app:bgArcWidth="@dimen/small"
+                    app:hint="健康指数"
+                    app:hintColor="#ffff"
+                    app:hintSize="15sp"
+                    app:maxValue="100"
+                    app:startAngle="135"
+                    app:sweepAngle="270"
+                    app:unit="分"
+                    app:unitSize="15sp"
+                    app:unitColor="#ffff"
+                    app:valueColor="#ffff"
+                    app:value="1"
+                    app:valueSize="25sp" />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <TextView
+                style="@style/BaseText"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="我的健康评级" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:text="健康体重范围" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/report_weightrange"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp" />
+                <View style="@style/BaseLongDividerLine" />
 
-    </LinearLayout>
+                <View
+                    android:layout_width="120dp"
+                    android:layout_height="1px"
+                    android:layout_gravity="center"
+                    android:background="@color/quxian_ju" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            </FrameLayout>
 
-        <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="标准体重"
-            android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/s_value"
+                    style="@style/BaseText"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/yuanjiao_fang_green"
+                    android:gravity="center"
+                    android:text="S"
+                    android:textColor="@color/default_item_color" />
 
-        <TextView
-            android:id="@+id/report_standardweight"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:text="62" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/a_value"
+                     style="@style/BaseText"
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:background="@drawable/yuanjiao_fang_h"
+                     android:gravity="center"
+                     android:text="A"
+                     android:textColor="@color/default_item_color" />
+
+                 <TextView
+                     android:id="@+id/b_value"
+                     style="@style/BaseText"
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:background="@drawable/yuanjiao_fang_ju"
+                     android:gravity="center"
+                     android:text="B"
+                     android:textColor="@color/default_item_color" />
+
+                 <TextView
+                     android:id="@+id/c_value"
+                     style="@style/BaseText"
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:background="@drawable/yuanjiao_fang_huang"
+                     android:gravity="center"
+                     android:text="C"
+                     android:textColor="@color/default_item_color" />
+
+                 <TextView
+                     android:id="@+id/d_value"
+                     style="@style/BaseText"
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:background="@drawable/yuanjiao_fang_hong"
+                     android:gravity="center"
+                     android:text="D"
+                     android:textColor="@color/default_item_color" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="S级: 95-100分;     A级: 86-94分;     B级: 76-85分;     C级: 61-75分;     D级: 0-60分;"
+                android:textColor="@color/default_text_grey_color"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/default_parent_bg" />
+
+            <TextView
+                style="@style/BaseText"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="体重指数" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View style="@style/BaseLongDividerLine" />
+
+                <View
+                    android:layout_width="120dp"
+                    android:layout_height="1px"
+                    android:layout_gravity="center"
+                    android:background="@color/quxian_ju" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/bmi_value"
+                    style="@style/BaseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:text="18.5"
+                    android:textColor="@color/quxian_lan" />
+                <TextView
+                    android:id="@+id/isBmi_value"
+                    style="@style/BaseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:gravity="top|center_horizontal"
+                    android:text=" (标准)"
+                    android:textColor="@color/default_text_grey_color"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="轻体重: 低于18.5;     健康体重: 18.5～24;     超重: 24～28;     肥胖: 高于28"
+                android:textColor="@color/default_text_grey_color"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/default_parent_bg" />
+
+            <TextView
+                style="@style/BaseText"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="基础代谢率" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View style="@style/BaseLongDividerLine" />
+
+                <View
+                    android:layout_width="120dp"
+                    android:layout_height="1px"
+                    android:layout_gravity="center"
+                    android:background="@color/quxian_ju" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/bmr_value"
+                    style="@style/BaseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:text="1800"
+                    android:textColor="@color/quxian_lan" />
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:gravity="top|center_horizontal"
+                    android:text=" 千卡"
+                    android:textColor="@color/default_text_grey_color"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="基础代谢率（BMR）是指人体在清醒而又极端安静的状态下，不受肌肉活动、环境温度、食物及精神紧张等影响时的能量代谢率。"
+                android:textColor="@color/default_text_grey_color"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/default_parent_bg" />
+
+            <TextView
+                style="@style/BaseText"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="标准体重" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View style="@style/BaseLongDividerLine" />
+
+                <View
+                    android:layout_width="120dp"
+                    android:layout_height="1px"
+                    android:layout_gravity="center"
+                    android:background="@color/quxian_ju" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/standardWeight_value"
+                    style="@style/BaseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:text="77"
+                    android:textColor="@color/quxian_lan" />
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:gravity="top|center_horizontal"
+                    android:text=" 公斤"
+                    android:textColor="@color/default_text_grey_color"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="标准体重是反映和衡量一个人健康状况的重要标志之一。过胖和过瘦都不利于健康，也不会给人以健美感。"
+                android:textColor="@color/default_text_grey_color"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/default_parent_bg" />
+
+            <TextView
+                style="@style/BaseText"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="健康体重范围" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View style="@style/BaseLongDividerLine" />
+
+                <View
+                    android:layout_width="120dp"
+                    android:layout_height="1px"
+                    android:layout_gravity="center"
+                    android:background="@color/quxian_ju" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/standardWeightRange_value"
+                    style="@style/BaseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:text="60~70"
+                    android:textColor="@color/quxian_lan" />
+
+                <TextView
+                    style="@style/BaseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:gravity="top|center_horizontal"
+                    android:text=" 公斤"
+                    android:textColor="@color/default_text_grey_color"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="注：不适用于孕妇或运动员"
+                android:textColor="@color/default_text_grey_color"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/default_parent_bg" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

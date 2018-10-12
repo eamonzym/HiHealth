@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- simpleRulerView-->
+    <declare-styleable name="customRulerView">
+
+        <attr name="rulerOrientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+
+        <attr name="rulerHighlightColor" format="color|reference" />
+        <attr name="rulerColor" format="color|reference" />
+        <attr name="rulerTextColor" format="color|reference" />
+
+        <attr name="rulerIntervalDistance" format="dimension" />
+        <attr name="rulerLineWidth" format="dimension" />
+        <attr name="rulerLineHeight" format="dimension" />
+        <attr name="rulerTextSize" format="dimension" />
+        <attr name="rulerTextBaseLineDistance" format="dimension" />
+
+        <attr name="rulerIsDivideByTen" format="boolean" />
+        <attr name="rulerDivideByTenHeight" format="dimension" />
+        <attr name="rulerDivideByTenWidth" format="dimension" />
+
+        <attr name="rulerIsDivideByFive" format="boolean" />
+        <attr name="rulerDivideByFiveHeight" format="dimension" />
+        <attr name="rulerDivideByFiveWidth" format="dimension" />
+
+
+        <attr name="rulerIntervalValue" format="float" />
+        <attr name="rulerMaxValue" format="float" />
+        <attr name="rulerMinValue" format="float" />
+
+        <attr name="rulerRetainLength" format="integer" />
+    </declare-styleable>
+
+    <attr name="sb_shadow_radius" format="reference|dimension"/>       阴影半径
+    <attr name="sb_shadow_offset" format="reference|dimension"/>       阴影偏移
+    <attr name="sb_shadow_color" format="reference|color"/>            阴影颜色
+    <attr name="sb_uncheck_color" format="reference|color"/>           关闭颜色
+    <attr name="sb_checked_color" format="reference|color"/>           开启颜色
+    <attr name="sb_border_width" format="reference|dimension"/>        边框宽度
+    <attr name="sb_checkline_color" format="reference|color"/>         开启指示器颜色
+    <attr name="sb_checkline_width" format="reference|dimension"/>     开启指示器线宽
+    <attr name="sb_uncheckcircle_color" format="reference|color"/>     关闭指示器颜色
+    <attr name="sb_uncheckcircle_width" format="reference|dimension"/> 关闭指示器线宽
+    <attr name="sb_uncheckcircle_radius" format="reference|dimension"/>关闭指示器半径
+    <attr name="sb_checked" format="reference|boolean"/>               是否选中
+    <attr name="sb_shadow_effect" format="reference|boolean"/>         是否启用阴影
+    <attr name="sb_effect_duration" format="reference|integer"/>       动画时间，默认300ms
+    <attr name="sb_button_color" format="reference|color"/>            按钮颜色
+    <attr name="sb_show_indicator" format="reference|boolean"/>        是否显示指示器，默认true：显示
+    <attr name="sb_background" format="reference|color"/>              背景色，默认白色
+    <attr name="sb_enable_effect" format="reference|boolean"/>         是否启用特效，默认true
+
+</resources>

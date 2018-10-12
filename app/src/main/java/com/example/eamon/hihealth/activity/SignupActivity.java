@@ -3,7 +3,6 @@ package com.example.eamon.hihealth.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -13,21 +12,21 @@ import android.widget.Toast;
 
 import com.example.eamon.hihealth.R;
 import com.example.eamon.hihealth.db.UserInfo;
+import com.example.eamon.hihealth.gson.SignLoginMessage;
+import com.example.eamon.hihealth.util.BaseActivity;
+import com.example.eamon.hihealth.util.HttpAddress;
+import com.example.eamon.hihealth.util.HttpManager;
+import com.google.gson.Gson;
 
-import org.litepal.crud.DataSupport;
-
-import java.util.List;
-import java.util.UUID;
+import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Request;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends BaseActivity {
 
     private static final String TAG = "SignupActivity";
-
-    private int user_sign = 0;
-
 
 
     @Bind(R.id.input_name)
@@ -69,6 +68,36 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
+
+    public void postSignup(UserInfo userInfo){
+
+        HttpManager.postJSONAsync(HttpAddress.urlAddress + "/users/signup",userInfo, new HttpManager.DataCallBack() {
+            @Override
+            public void requestFailure(Request request, IOException e) {
+                Log.d(TAG,e.toString());
+                Toast.makeText(SignupActivity.this, "连接出错" , Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void requestSuccess(String result) throws Exception {
+                Log.d(TAG,result);
+                Gson gson = new Gson();
+                SignLoginMessage signLoginMessage = gson.fromJson(result, SignLoginMessage.class);
+                if (("success").equals(signLoginMessage.responseMessage.result)) {
+                    Toast.makeText(SignupActivity.this, signLoginMessage.responseMessage.message, Toast.LENGTH_LONG).show();
+                    Log.d(TAG,"usereamil:"+ signLoginMessage.userinfo.getUseremail());
+                    Intent intent = new Intent();
+                    intent.putExtra("user_data", signLoginMessage.userinfo);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                } else if (("fail").equals(signLoginMessage.responseMessage.result)) {
+                    Toast.makeText(SignupActivity.this, signLoginMessage.responseMessage.message, Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+    }
     public void signup() {
         Log.d(TAG,"Signup");
 
@@ -103,23 +132,14 @@ public class SignupActivity extends AppCompatActivity {
     public void onSignupSuccess () {
         _signupButton.setEnabled(true);
         UserInfo userInfo = setUserInfo();
-        Log.d("TAG", "(singup succ)user name is " + userInfo.getUser_name());
-        Intent intent = new Intent();
-        intent.putExtra("user_data", userInfo);
-        setResult(RESULT_OK, intent);
-        finish();
+        postSignup(userInfo);
+        Log.d("TAG", "(singup succ)user name is " + userInfo.getUsername());
     }
     public UserInfo setUserInfo () {
         UserInfo userInfo = new UserInfo();
-        String userId = UUID.randomUUID().toString();
-        userInfo.setUser_Id(userId);
-        userInfo.setUser_Email(_emailText.getText().toString());
-        userInfo.setUser_password(_passwordText.getText().toString());
-        userInfo.setUser_name(_nameText.getText().toString());
-        userInfo.setSign(user_sign);
-        Log.d("TAG", "news id is " + userInfo.getUser_Id());
-        userInfo.save();
-        Log.d("TAG", "news id is " + userInfo.getUser_Id());
+        userInfo.setUseremail(_emailText.getText().toString());
+        userInfo.setUserpassword(_passwordText.getText().toString());
+        userInfo.setUsername(_nameText.getText().toString());
 
         return userInfo;
     }
@@ -137,28 +157,6 @@ public class SignupActivity extends AppCompatActivity {
         String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
-
-        List<UserInfo> userInfo_name = DataSupport
-                .where("user_name = ?", name).find(UserInfo.class);
-
-        List<UserInfo> userInfo_email = DataSupport
-                .where("user_email = ?", email).find(UserInfo.class);
-
-
-        if (userInfo_name.isEmpty()) {
-            _nameText.setError(null);
-        } else {
-            _nameText.setError("该用户名已存在");
-            valid = false;
-        }
-
-
-        if (userInfo_email.isEmpty()) {
-            _nameText.setError(null);
-        } else {
-            _emailText.setError("该邮箱已注册");
-            valid = false;
-        }
 
         if (name.isEmpty() || name.length() < 3) {
             _nameText.setError("名字不能长度太短");
@@ -186,4 +184,8 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

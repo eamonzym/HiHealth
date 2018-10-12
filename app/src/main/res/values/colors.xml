@@ -3,4 +3,31 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="default_text_black_color">#333333</color>
+    <color name="default_text_grey_color">#cccccc</color>
+
+    <color name="quxian_ju">#FF7F24</color>
+    <color name="quxian_lan">#3399ff</color>
+    <color name="quxian_lan_light">#5CACEE</color>
+    <color name="quxian_zi">#8B4789</color>
+    <color name="quxian_zi_light">#8B668B</color>
+
+    <!--默认背景色-->
+    <color name="default_parent_bg">#F5F5F5</color>
+    <!--默认个人信息线条颜色-->
+    <color name="my_info_devider_color">#bbbbbb</color>
+    <!--默认个人信息item颜色-->
+    <color name="default_item_color">#ffffff</color>
+
+    <color name="yellow">#FFD700</color>
+    <color name="green">#70d089</color>
+    <color name="lan_green">#00CED1</color>
+    <!-- 日历 日期颜色-->
+    <color name="contentTextHintColorDarker">#999999</color>
+
+    <color name="blue_light">#73c3fe</color>
+
+    <color name="contentTextHintColor">#b8b8b8</color>
+
 </resources>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.eamon.hihealth.activity.FoodActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@color/quxian_lan">
+
+            <LinearLayout
+                android:id="@+id/left_back_view"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:layout_width="11dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/zuojiantou_bai" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/food_title_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#ffff"
+                android:text="健康运动"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_alignParentRight="true"
+                android:id="@+id/create_view"
+                android:layout_marginRight="8dp"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/habit_create" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <View style="@style/BaseLongDividerLine"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:layout_gravity="center"
+                    android:layout_width="3dp"
+                    android:layout_height="16dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/quxian_lan" />
+                <TextView
+                    android:layout_gravity="center"
+                    style="@style/BaseText"
+                    android:text="今日运动"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24dp"/>
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyler_exercise"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/default_parent_bg" />
+
+        <Button
+            android:id="@+id/data_exercise"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/yuanjiao_green"
+            android:text="运动记录"
+            android:textColor="#ffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+</ScrollView>

@@ -1,7 +1,6 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
-
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,23 +10,45 @@ import java.util.Date;
  * 时间：  on 2018/3/27.
  */
 
-public class HabitLog {
+public class HabitLog implements Serializable{
 
-    // 主键 习惯记录编号
-    @Column(unique = true)
-    private String habitLog_Id;
+    private String habitstampestate;
 
-    // 外键 习惯信息编号
-    // 多 对 1
-    @Column(nullable = false)
+    private Date habitstampetime;
+
     private Habit habit;
 
-    // 不空 习惯打卡状态
-    @Column(nullable = false)
-    private String habitLog_StampeState;
+    private UserInfo userInfo;
 
-    // 不空 习惯打卡日期
-    @Column(nullable = false)
-    private Date habitLog_StampeTime;
+    public Habit getHabit() {
+        return habit;
+    }
 
+    public void setHabit(Habit habit) {
+        this.habit = habit;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
+    public String getHabitstampestate() {
+        return habitstampestate;
+    }
+
+    public void setHabitstampestate(String habitstampestate) {
+        this.habitstampestate = habitstampestate;
+    }
+
+    public Date getHabitstampetime() {
+        return habitstampetime;
+    }
+
+    public void setHabitstampetime(Date habitstampetime) {
+        this.habitstampetime = habitstampetime;
+    }
 }

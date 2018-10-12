@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.eamon.hihealth.activity.FoodInfoActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/quxian_lan">
+
+        <LinearLayout
+            android:id="@+id/left_back_view"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/zuojiantou_bai" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="食物信息"
+            android:textColor="#ffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <com.gigamole.navigationtabstrip.NavigationTabStrip
+        android:id="@+id/nts"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:nts_color="@color/quxian_lan"
+        app:nts_size="15sp"
+        app:nts_weight="3dp"
+        app:nts_factor="2.5"
+        app:nts_type="line"
+        app:nts_gravity="bottom"
+        app:nts_typeface="fonts/typeface.otf"
+        app:nts_corners_radius="1.5dp"
+        app:nts_animation_duration="300"
+        app:nts_active_color="@color/quxian_lan"
+        app:nts_inactive_color="#c4c4c4"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

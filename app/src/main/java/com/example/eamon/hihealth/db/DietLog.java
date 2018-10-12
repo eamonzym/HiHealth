@@ -1,10 +1,7 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
-
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * 饮食记录信息
@@ -14,25 +11,59 @@ import java.util.List;
  * 时间：  on 2018/3/27.
  */
 
-public class DietLog {
+public class DietLog implements Serializable{
+    private Number dietquantity;
+    private Number dietcalorie;
+    private Date dietlogtime;
+    private String diettype;
+    private Food foodid;
+    private UserInfo userInfo;
 
-    // 主键 饮食记录编号
-    @Column(unique = true)
-    private String dietLog_Id;
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
 
-    // 多 对 多
-    private List<Food> foodList = new ArrayList<Food>();
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
 
-    // 不空 饮食数量
-    @Column(nullable = false)
-    private int dietLog_Quantity;
+    public Food getFood() {
+        return foodid;
+    }
 
-    // 不空 摄入热量值
-    @Column(nullable = false)
-    private double dietLog_Calorie;
+    public void setFood(Food food) {
+        this.foodid = food;
+    }
 
-    // 不空 饮食记录时间
-    @Column(nullable = false)
-    private Date dietLog_Time;
+    public Number getDietquantity() {
+        return dietquantity;
+    }
 
+    public void setDietquantity(Number dietquantity) {
+        this.dietquantity = dietquantity;
+    }
+
+    public Number getDietcalorie() {
+        return dietcalorie;
+    }
+
+    public void setDietcalorie(Number dietcalorie) {
+        this.dietcalorie = dietcalorie;
+    }
+
+    public Date getDietlogtime() {
+        return dietlogtime;
+    }
+
+    public void setDietlogtime(Date dietlogtime) {
+        this.dietlogtime = dietlogtime;
+    }
+
+    public String getDiettype() {
+        return diettype;
+    }
+
+    public void setDiettype(String diettype) {
+        this.diettype = diettype;
+    }
 }

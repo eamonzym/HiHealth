@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mcxtzhang.swipemenulib.SwipeMenuLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true">
+    <RelativeLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/food_name"
+                android:layout_marginBottom="8dp"
+                android:textSize="16sp"
+                style="@style/BaseText"
+                android:text="豆汁"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/food_cal"
+                    style="@style/BaseText"
+                    android:textSize="16sp"
+                    android:text="10.0Kcal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@color/default_text_grey_color"
+                    android:text=" / 100g"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/food_suggest"
+            android:textColor="#00a483"
+            android:layout_marginRight="16dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:text="推荐"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_alignParentBottom="true"
+            style="@style/BaseLongDividerLine"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/target_time" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnBreakfast"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="@color/quxian_lan"
+        android:text="早"
+        android:textColor="#fff"/>
+    <Button
+        android:id="@+id/btnLunch"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="#4bad37"
+        android:text="中"
+        android:textColor="#fff"/>
+    <Button
+        android:id="@+id/btnDinner"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="#ff4a57"
+        android:text="晚"
+        android:textColor="#fff"/>
+</com.mcxtzhang.swipemenulib.SwipeMenuLayout>

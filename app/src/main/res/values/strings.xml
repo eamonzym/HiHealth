@@ -14,4 +14,12 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="number_picker_formatter">%2d</string>
+
+    <string name="roboto_light">sans-serif-light</string>
+    <string name="title_activity_create_exercise_log">CreateExerciseLogActivity</string>
 </resources>

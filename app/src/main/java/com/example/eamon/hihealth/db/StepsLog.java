@@ -1,7 +1,6 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
-
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,17 +9,24 @@ import java.util.Date;
  * 时间：  on 2018/3/27.
  */
 
-public class StepsLog {
+public class StepsLog implements Serializable {
+    private Number stepslogvalue;
 
-    // 主键 步数记录编号
-    @Column(unique = true)
-    private String stepsLog_Id;
+    private Date stepslogtime;
 
-    // 不空 步数值
-    @Column(nullable = false)
-    private int stepsLog_Value;
+    public Number getStepslogvalue() {
+        return stepslogvalue;
+    }
 
-    // 不空 步数记录时间
-    @Column(nullable = false)
-    private Date stepsLog_Time;
+    public void setStepslogvalue(Number stepslogvalue) {
+        this.stepslogvalue = stepslogvalue;
+    }
+
+    public Date getStepslogtime() {
+        return stepslogtime;
+    }
+
+    public void setStepslogtime(Date stepslogtime) {
+        this.stepslogtime = stepslogtime;
+    }
 }

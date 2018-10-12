@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_parent_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@color/quxian_lan">
+
+            <LinearLayout
+                android:id="@+id/left_back_view"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:layout_width="11dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/zuojiantou_bai" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="完善目标信息(1/3)"
+                android:textColor="#ffff"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <View style="@style/BaseLongDividerLine"/>
+
+        <EditText
+            android:id="@+id/target_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入目标名称"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/yuanjiao_green"
+        android:onClick="onClick"
+        android:text="下一步"
+        android:textColor="#ffff"
+        android:textSize="14sp" />
+
+</RelativeLayout>

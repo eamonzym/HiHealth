@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@color/quxian_lan">
+
+            <LinearLayout
+                android:id="@+id/left_back_view"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:onClick="onClick">
+
+                <ImageView
+                    android:layout_width="11dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/zuojiantou_bai" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/habit_info_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#ffff"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <View style="@style/BaseLongDividerLine"/>
+
+        <LinearLayout
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_gravity="center"
+                android:layout_width="3dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/quxian_lan" />
+            <TextView
+                android:layout_gravity="center"
+                style="@style/BaseText"
+                android:text="数据统计"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"/>
+        </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <LinearLayout
+               android:gravity="center"
+               android:orientation="vertical"
+               android:layout_weight="1"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content">
+
+               <RelativeLayout
+                   android:gravity="center"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+                   <TextView
+                       style="@style/BaseText"
+                       android:id="@+id/keep_day_view"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="0"
+                       android:textColor="@color/quxian_lan"
+                       android:layout_marginRight="8dp"
+                       android:textSize="32sp" />
+
+                   <TextView
+                       style="@style/BaseText"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignBaseline="@+id/keep_day_view"
+                       android:layout_alignBottom="@+id/keep_day_view"
+                       android:layout_toEndOf="@+id/keep_day_view"
+                       android:layout_toRightOf="@+id/keep_day_view"
+                       android:text="天" />
+               </RelativeLayout>
+               <View style="@style/BaseLongDividerLine"
+                   android:layout_width="150dp"/>
+               <TextView
+                   android:layout_marginTop="8dp"
+                   android:text="连续完成"
+                   style="@style/BaseText"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+           </LinearLayout>
+
+           <LinearLayout
+               android:gravity="center"
+               android:orientation="vertical"
+               android:layout_weight="1"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content">
+               <RelativeLayout
+                   android:gravity="center"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+                   <TextView
+                       style="@style/BaseText"
+                       android:id="@+id/all_day_view"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="5"
+                       android:textColor="@color/quxian_lan"
+                       android:layout_marginRight="8dp"
+                       android:textSize="32sp" />
+
+                   <TextView
+                       style="@style/BaseText"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignBaseline="@+id/all_day_view"
+                       android:layout_alignBottom="@+id/all_day_view"
+                       android:layout_toEndOf="@+id/all_day_view"
+                       android:layout_toRightOf="@+id/all_day_view"
+                       android:text="天" />
+               </RelativeLayout>
+               <View style="@style/BaseLongDividerLine"
+                   android:layout_width="150dp"/>
+               <TextView
+                   android:layout_marginTop="8dp"
+                   android:text="总共完成"
+                   style="@style/BaseText"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+           </LinearLayout>
+       </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/default_parent_bg" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.sch.calendar.CalendarView
+                android:id="@+id/calendar_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                app:dateDividerColor="@color/colorPrimary"
+                app:dateDividerSize="0.5dp"
+                app:monthBackground="@drawable/bg_action_calendar"
+                app:titleColor="@color/quxian_lan"
+                app:weekBackground="@color/quxian_lan"
+                app:weekColor="#ffff"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

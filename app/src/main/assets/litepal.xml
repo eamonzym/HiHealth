@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <litepal>
     <dbname value="HealthManage" ></dbname>
-    <version value="18"></version>
+    <version value="20"></version>
 
     <list>
         <mapping class="com.example.eamon.hihealth.db.HealthReport"></mapping>
@@ -10,7 +10,7 @@
         <!--<mapping class="com.example.eamon.hihealth.db.HabitLog"></mapping>-->
         <!--<mapping class="com.example.eamon.hihealth.db.Habit"></mapping>-->
         <!--<mapping class="com.example.eamon.hihealth.db.ExerciseLog"></mapping>-->
-        <!--<mapping class="com.example.eamon.hihealth.db.Exrecise"></mapping>-->
+        <!--<mapping clacom.example.eamon.hihealth.db.Exercisecise"></mapping>-->
         <!--<mapping class="com.example.eamon.hihealth.db.DefecateLog"></mapping>-->
         <!--<mapping class="com.example.eamon.hihealth.db.Defecate"></mapping>-->
         <!--<mapping class="com.example.eamon.hihealth.db.Target"></mapping>-->
@@ -18,7 +18,7 @@
         <!--<mapping class="com.example.eamon.hihealth.db.TargetType"></mapping>-->
         <!--<mapping class="com.example.eamon.hihealth.db.DietLog"></mapping>-->
         <!--<mapping class="com.example.eamon.hihealth.db.Food"></mapping>-->
-        <!--<mapping class="com.example.eamon.hihealth.db.StepsLog"></mapping>-->
+        <mapping class="com.example.eamon.hihealth.db.StepsLog"></mapping>
         <mapping class="com.example.eamon.hihealth.db.UserInfo"></mapping>
     </list>
 </litepal>

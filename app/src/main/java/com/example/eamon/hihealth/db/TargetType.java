@@ -1,9 +1,6 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * 健康目标类型信息
@@ -13,24 +10,12 @@ import java.util.List;
  * 时间：  on 2018/3/27.
  */
 
-public class TargetType {
+public class TargetType implements Serializable{
 
-    // 主键 健康目标类型编号
-    @Column(unique = true)
-    private String targetType_Id;
+  private String targettypename;
 
-    //1 对 多
-    private List<Target> targetList = new ArrayList<Target>();
+  private String targettyperank;
 
-    // 不空 目标类型名称
-    @Column(nullable = false)
-    private String targetType_Name;
+  private String targettypesuggest;
 
-    // 不空 目标类型等级
-    @Column(nullable = false)
-    private String targetType_Rank;
-
-    // 不空 目标建议
-    @Column(nullable = false)
-    private String targetType_Suggest;
 }

@@ -2,8 +2,9 @@ package com.example.eamon.hihealth.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -11,27 +12,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.eamon.hihealth.R;
-import com.example.eamon.hihealth.db.BodyData;
 import com.example.eamon.hihealth.db.UserInfo;
-import com.example.eamon.hihealth.db.datainit.BodyDataInit;
+import com.example.eamon.hihealth.gson.SignLoginMessage;
+import com.example.eamon.hihealth.util.BaseActivity;
+import com.example.eamon.hihealth.util.HttpAddress;
+import com.example.eamon.hihealth.util.HttpManager;
+import com.google.gson.Gson;
 
-import org.litepal.crud.DataSupport;
-
-import java.util.List;
+import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Request;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
 
     private static final String TAG = "LoginActivity";
 
+    private SharedPreferences pref;
 
-
-
-
-    List<UserInfo> userInfoList;
+    private SharedPreferences.Editor editor;
 
     @Bind(R.id.input_email)
     EditText _eamilText;
@@ -49,10 +50,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-//        DataSupport.deleteAll(UserInfo.class);
-//        DataSupport.deleteAll(BodyData.class);
-//        DataSupport.deleteAll(BodyDataLog.class);
         ButterKnife.bind(this);
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+        if (!pref.getString("userinfo", "").isEmpty()) {
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
         // 登录按钮事件监听
         _loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,8 +113,7 @@ public class LoginActivity extends AppCompatActivity {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 UserInfo signInfo = (UserInfo) data.getSerializableExtra("user_data");
-                _eamilText.setText(signInfo.getUser_Email());
-                Log.d("TAG", "onActiviytResult user name  is " + signInfo.getUser_name());
+                _eamilText.setText(signInfo.getUseremail());
             }
         }
     }
@@ -121,28 +123,56 @@ public class LoginActivity extends AppCompatActivity {
         moveTaskToBack(true);
     }
 
+    public void postSignup(UserInfo userInfo){
+
+        HttpManager.postJSONAsync(HttpAddress.urlAddress + "/users/login",userInfo, new HttpManager.DataCallBack() {
+            @Override
+            public void requestFailure(Request request, IOException e) {
+                Log.d(TAG,e.toString());
+                Toast.makeText(LoginActivity.this, "连接出错" , Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void requestSuccess(String result) throws Exception {
+                Log.d(TAG,result);
+                Gson gson = new Gson();
+                SignLoginMessage signLoginMessage = gson.fromJson(result, SignLoginMessage.class);
+                if (("success").equals(signLoginMessage.responseMessage.result)) {
+                    Toast.makeText(LoginActivity.this, signLoginMessage.responseMessage.message, Toast.LENGTH_LONG).show();
+                    Log.d(TAG,"username:"+ signLoginMessage.userinfo.getUsername());
+                    Log.d(TAG,"usereamil:"+ signLoginMessage.userinfo.getUseremail());
+                    editor = pref.edit();
+                    editor.clear();
+                    editor.putString("userinfo", gson.toJson(signLoginMessage.userinfo));
+                    Log.d(TAG,"userinfo json bean:"+ signLoginMessage.userinfo);
+                    Log.d(TAG,"userinfo json:"+ gson.toJson(signLoginMessage.userinfo));
+                    editor.apply();
+                    if (("new").equals(signLoginMessage.userinfo.getUsersign())) {
+                        Intent intent = new Intent(LoginActivity.this,UserInfoOneActivity.class);
+                        startActivity(intent);
+                    } else if (("old").equals(signLoginMessage.userinfo.getUsersign())) {
+                        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                        startActivity(intent);
+                    }
+                } else if (("fail").equals(signLoginMessage.responseMessage.result)) {
+                    Toast.makeText(LoginActivity.this, signLoginMessage.responseMessage.message, Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+    }
+    public UserInfo setUserInfo () {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUseremail(_eamilText.getText().toString());
+        userInfo.setUserpassword(_passwordText.getText().toString());
+        return userInfo;
+    }
+
     public void onLoginSuccess () {
         _loginButton.setEnabled(true);
-        List<BodyData> bodyDataList = DataSupport.findAll(BodyData.class);
-        if (bodyDataList.isEmpty()){
-            BodyDataInit bodyDataInit = new BodyDataInit();
-            bodyDataInit.BodyDataDefault();
-        }
-        for ( UserInfo loginInfo : userInfoList)
-        {
-            Log.d("TAG", "Login succ user name is " + loginInfo.getUser_name());
-            Log.d("TAG", "Login succ user name is " + loginInfo.getUser_height());
-        if (loginInfo.getSign() == 0) {
-            Intent intent = new Intent(LoginActivity.this, UserInfoActivity.class);
-            intent.putExtra("user_data",loginInfo);
-            startActivity(intent);
-        } else if (loginInfo.getSign() == 1) {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.putExtra("user_data",loginInfo);
-            startActivity(intent);
-        }
-
-        }
+        UserInfo userInfo = setUserInfo();
+        postSignup(userInfo);
     }
 
     public void onLoginFailed () {
@@ -156,7 +186,6 @@ public class LoginActivity extends AppCompatActivity {
         String email = _eamilText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        userInfoList = DataSupport.where("user_email = ? and user_password = ?", email, password).find(UserInfo.class);
 
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -164,10 +193,6 @@ public class LoginActivity extends AppCompatActivity {
             valid = false;
         } else {
             _eamilText.setError(null);
-            if (userInfoList.isEmpty()) {
-                Toast.makeText(getBaseContext(), "输入的邮箱或密码有误，请重新输入" , Toast.LENGTH_LONG).show();
-                valid = false;
-            }
         }
 
         if(password.isEmpty() || password.length() < 4 || password.length() > 10) {
@@ -175,11 +200,12 @@ public class LoginActivity extends AppCompatActivity {
             valid = false;
         } else {
             _passwordText.setError(null);
-            if (userInfoList.isEmpty()) {
-                Toast.makeText(getBaseContext(), "输入的邮箱或密码有误，请重新输入" , Toast.LENGTH_LONG).show();
-                valid = false;
-            }
         }
             return  valid;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

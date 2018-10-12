@@ -1,11 +1,7 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.crud.DataSupport;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * 健康报告信息 实体类 HealthRebort
@@ -14,60 +10,24 @@ import java.util.List;
  */
 
 
-public class HealthReport extends DataSupport implements Serializable {
+public class HealthReport implements Serializable {
+    private Number reportscroe;
 
-    // 主键
-    private int id;
+    private Date reporttime;
 
-    // 1 对 多 关系
-    private List<BodyDataLog> bodyDataLogList = new ArrayList<BodyDataLog>();
-
-    private int userinfo_id;
-
-    // 设置为不空
-    private int report_Scroe;
-
-    // 设置为不空
-    private Date report_Time;
-
-
-    public List<BodyDataLog> getBodyDataLogList() {
-        return bodyDataLogList;
+    public Number getReportscroe() {
+        return reportscroe;
     }
 
-    public void setBodyDataLogList(List<BodyDataLog> bodyDataLogList) {
-        this.bodyDataLogList = bodyDataLogList;
+    public void setReportscroe(Number reportscroe) {
+        this.reportscroe = reportscroe;
     }
 
-    public int getReport_Scroe() {
-        return report_Scroe;
+    public Date getReporttime() {
+        return reporttime;
     }
 
-    public void setReport_Scroe(int report_Scroe) {
-        this.report_Scroe = report_Scroe;
-    }
-
-    public Date getReport_Time() {
-        return report_Time;
-    }
-
-    public void setReport_Time(Date report_Time) {
-        this.report_Time = report_Time;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getUserinfo_id() {
-        return userinfo_id;
-    }
-
-    public void setUserinfo_id(UserInfo userinfo) {
-        this.userinfo_id = userinfo.getId();
+    public void setReporttime(Date reporttime) {
+        this.reporttime = reporttime;
     }
 }

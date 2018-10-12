@@ -1,10 +1,8 @@
 package com.example.eamon.hihealth.db;
 
-import org.litepal.annotation.Column;
-
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 健康目标信息
@@ -17,39 +15,119 @@ import java.util.List;
  * 时间：  on 2018/3/27.
  */
 
-public class Target {
+public class Target implements Serializable{
+   private String _id;
+   private String targetname;
+   private Number initialweight;
+   private Number targetweight;
+   private Number daylossweight;
+   private Date targetfinishtime;
+   private Date targetcreatetime;
+   private Date targetstarttime;
+   private String targetstate;
+   private String targetnote;
+   public String targettype;
+   private String username;
+   private String time = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 
-    // 主键 目标编号
-    @Column(unique = true)
-    private String target_Id;
 
-    // 外键 目标类型编号
-    // 多 对 1
-    @Column(nullable = false)
-    private TargetType targetType;
-    // 1 对 多
-    private List<TargetLog> targetLogList = new ArrayList<TargetLog>();
-    // 不为空 目标名称
-    @Column(nullable = false)
-    private String target_Name;
+    public Target(){
 
-    // 不为空 初始体重
-    @Column(nullable = false)
-    private double initialWeight;
+    }
 
-    // 不为空 目标体重
-    @Column(nullable = false)
-    private double targetWeight;
+    public String get_id() {
+        return _id;
+    }
 
-    // 不为空 预计每日减重
-    @Column(nullable = false)
-    private double dayLossWeight;
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
-    // 不为空 预计目标完成时间
-    @Column(nullable = false)
-    private Date target_FinishTime;
+    public String getUsername() {
+        return username;
+    }
 
-    // 不为空 目标建立时间
-    @Column(nullable = false)
-    private Date target_CreatTime;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getTargettype() {
+        return targettype;
+    }
+
+    public void setTargettype(String targettype) {
+        this.targettype = targettype;
+    }
+
+    public String getTargetname() {
+        return targetname;
+    }
+
+    public void setTargetname(String targetname) {
+        this.targetname = targetname;
+    }
+
+    public Number getInitialweight() {
+        return initialweight;
+    }
+
+    public void setInitialweight(Number initialweight) {
+        this.initialweight = initialweight;
+    }
+
+    public Number getTargetweight() {
+        return targetweight;
+    }
+
+    public void setTargetweight(Number targetweight) {
+        this.targetweight = targetweight;
+    }
+
+    public Number getDaylossweight() {
+        return daylossweight;
+    }
+
+    public void setDaylossweight(Number daylossweight) {
+        this.daylossweight = daylossweight;
+    }
+
+    public Date getTargetfinishtime() {
+        return targetfinishtime;
+    }
+
+    public void setTargetfinishtime(Date targetfinishtime) {
+        this.targetfinishtime = targetfinishtime;
+    }
+
+    public Date getTargetcreatetime() {
+        return targetcreatetime;
+    }
+
+    public void setTargetcreatetime(Date targetcreatetime) {
+        this.targetcreatetime = targetcreatetime;
+    }
+
+    public Date getTargetstarttime() {
+        return targetstarttime;
+    }
+
+    public void setTargetstarttime(Date targetstarttime) {
+        this.targetstarttime = targetstarttime;
+    }
+
+    public String getTargetstate() {
+        return targetstate;
+    }
+
+    public void setTargetstate(String targetstate) {
+        this.targetstate = targetstate;
+    }
+
+    public String getTargetnote() {
+        return targetnote;
+    }
+
+    public void setTargetnote(String targetnote) {
+        this.targetnote = targetnote;
+    }
 }
